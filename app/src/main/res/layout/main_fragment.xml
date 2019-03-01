@@ -4,42 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainFragment">
 
     <Button
-        android:id="@+id/constraint_button"
+        android:id="@+id/constraintButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Constraint"
-        android:onClick="startConstraintActivity"/>
+        android:text="Constraint" />
 
     <Button
-        android:id="@+id/linear_button"
+        android:id="@+id/linearButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Linear"
-        android:onClick="startLinearActivity"/>
+        android:text="Linear" />
 
     <Button
-        android:id="@+id/relative_button"
+        android:id="@+id/relativeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Relative"
-        android:onClick="startRelativeActivity"/>
+        android:text="Relative" />
 
     <Button
-        android:id="@+id/scrolling_views_button"
+        android:id="@+id/scrollingViewsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scrolling View"
-        android:onClick="startScrollingViewActivity"/>
+        android:text="Scrolling View" />
 
     <Button
-        android:id="@+id/address_button"
+        android:id="@+id/addressButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
-        android:onClick="startAddressActivity"/>
+        android:text="Address" />
 
 
 </LinearLayout>
