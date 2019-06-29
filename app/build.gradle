@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'realm-android'
 
 android {
@@ -41,24 +41,32 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'com.google.dagger:dagger:2.21'
 
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
-    testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.21'
-    kapt 'com.google.dagger:dagger-compiler:2.21'
+    //dagger
+    implementation 'com.google.dagger:dagger:2.23.2'
+    implementation 'com.google.dagger:dagger-android:2.23.2'
+    implementation 'com.google.dagger:dagger-android-support:2.23.2' // if you use the support libraries
+    kapt 'com.google.dagger:dagger-compiler:2.23.2'
+    kapt 'com.google.dagger:dagger-android-processor:2.23.2'
+    //testAnnotationProcessor 'com.google.dagger:dagger-compiler:2.23.2'
+    testImplementation 'com.google.dagger:dagger:2.23.2'
+    testImplementation 'com.google.dagger:dagger-android-support:2.23.2' // if you use the support libraries
+    kaptTest 'com.google.dagger:dagger-compiler:2.23.2'
+    kaptTest 'com.google.dagger:dagger-android-processor:2.23.2'
 
     testImplementation 'com.tngtech.archunit:archunit:0.9.3'
     testImplementation 'com.tngtech.archunit:archunit-junit4:0.9.3'
     testImplementation 'junit:junit:4.12'
-    testImplementation 'com.google.dagger:dagger:2.21'
-    testImplementation 'org.mockito:mockito-core:2.23.4'
-    testImplementation 'org.robolectric:robolectric:4.1'
 
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
+    testImplementation 'org.mockito:mockito-core:2.23.4'
+    testImplementation 'org.robolectric:robolectric:4.2'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }

@@ -4,10 +4,15 @@ import com.example.androidfundamentals.activities.AddressActivity;
 import com.example.androidfundamentals.domains.Address;
 import com.example.androidfundamentals.interactors.AddressInteractor;
 
+import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import io.reactivex.Observable;
+import io.reactivex.android.plugins.RxAndroidPlugins;
+import io.reactivex.plugins.RxJavaPlugins;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -21,12 +26,17 @@ public class AddressPresenterTest {
     private AddressInteractor addressInteractorMock;
     private AddressPresenter addressPresenter;
 
+    @BeforeClass
+    public static void setUpClass() {
+        RxJavaPlugins.setNewThreadSchedulerHandler (h -> Schedulers.trampoline());
+        RxAndroidPlugins.setInitMainThreadSchedulerHandler (h -> Schedulers.trampoline());
+    }
+
     @Before
     public void setUp() {
         addressActivityMock = mock(AddressActivity.class);
         addressInteractorMock = mock(AddressInteractor.class);
-        addressPresenter = new AddressPresenter(addressInteractorMock);
-        addressPresenter.setActivity(addressActivityMock);
+        addressPresenter = new AddressPresenter(addressActivityMock, addressInteractorMock);
     }
 
     @Test

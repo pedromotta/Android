@@ -1,21 +1,23 @@
 package com.example.androidfundamentals.activities;
 
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.androidfundamentals.MainApplication;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.androidfundamentals.R;
 import com.example.androidfundamentals.domains.Address;
 import com.example.androidfundamentals.domains.Addresses;
 import com.example.androidfundamentals.presenters.AddressPresenter;
+import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 public class AddressActivity extends AppCompatActivity {
 
@@ -24,11 +26,14 @@ public class AddressActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
 
-        ((MainApplication) getApplication()).buildComponent().inject(this);
-        addressPresenter.setActivity(this);
+
+
+        //MainApplication.Companion.getComponent().inject(this);
+        //addressPresenter.setActivity(this);
 
         Log.i(this.getClass().getName(), "onCreate");
     }

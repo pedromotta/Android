@@ -22,12 +22,6 @@ public class MockAddressModule {
     }
 
     @Provides
-    public Gson providesGson()
-    {
-        return new Gson();
-    }
-
-    @Provides
     public AddressRepository providesAddressRepository()
     {
         return mock(AddressRepository.class);

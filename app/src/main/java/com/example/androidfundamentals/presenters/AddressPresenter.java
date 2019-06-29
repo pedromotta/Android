@@ -14,12 +14,9 @@ public class AddressPresenter {
     private AddressInteractor addressInteractor;
 
     @Inject
-    public AddressPresenter(final AddressInteractor addressInteractor) {
+    public AddressPresenter(final AddressActivity activity, final AddressInteractor addressInteractor) {
+        this.addressActivity = activity;
         this.addressInteractor = addressInteractor;
-    }
-
-    public void setActivity(AddressActivity addressActivity) {
-        this.addressActivity = addressActivity;
     }
 
     public void searchAddress(String cep) {
