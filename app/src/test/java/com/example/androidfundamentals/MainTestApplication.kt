@@ -5,9 +5,10 @@ import com.example.androidfundamentals.di.DaggerMockApplciationAndroidComponent
 class MainTestApplication : MainAndroidApplication() {
 
     override fun onCreate() {
-        DaggerMockApplciationAndroidComponent
+        component = DaggerMockApplciationAndroidComponent
             .factory()
             .create(applicationContext)
-            .inject(this)
+
+        component.inject(this)
     }
 }

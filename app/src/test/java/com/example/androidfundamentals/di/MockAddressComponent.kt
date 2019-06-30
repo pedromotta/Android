@@ -16,4 +16,6 @@ interface MockApplciationAndroidComponent: ApplicationAndroidComponent {
     interface Factory {
         fun create(@BindsInstance applicationContext: Context): ApplicationAndroidComponent
     }
+
+    fun inject(addressActivity: AddressActivityTest)
 }

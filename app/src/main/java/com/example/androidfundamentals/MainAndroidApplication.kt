@@ -2,6 +2,7 @@ package com.example.androidfundamentals
 
 import android.app.Activity
 import android.app.Application
+import com.example.androidfundamentals.di.ApplicationAndroidComponent
 import com.example.androidfundamentals.di.DaggerApplicationAndroidComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,6 +12,10 @@ import javax.inject.Inject
 
 open class MainAndroidApplication : Application(), HasActivityInjector {
 
+    companion object {
+        lateinit var component : ApplicationAndroidComponent
+    }
+
     @Inject
     lateinit var dispatchingActivityInjector: DispatchingAndroidInjector<Activity>
 
@@ -19,10 +24,11 @@ open class MainAndroidApplication : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-        DaggerApplicationAndroidComponent
+        component = DaggerApplicationAndroidComponent
             .factory()
             .create(applicationContext)
-            .inject(this)
+
+        component.inject(this)
 
         Realm.init(this)
     }
