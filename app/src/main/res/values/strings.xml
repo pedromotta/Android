@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidFundamentals</string>
+    <string name="app_name">Motta Android</string>
     <string name="title_activity_constraint">ConstraintActivity</string>
     <string name="button_label_toast">Toast</string>
     <string name="button_label_count">Count</string>
